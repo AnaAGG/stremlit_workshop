@@ -2,6 +2,7 @@ import pandas as pd
 import folium
 from streamlit_folium import folium_static
 from folium import Choropleth, Circle, Marker, Icon, Map
+import plotly.express as px
 
 # Function to load the macroalgae data
 def load_data():
@@ -48,3 +49,9 @@ def maps(df):
         marker_2 = Marker(**location_, icon = icon).add_to(map_sby)
 
     return folium_static(map_sby)
+
+def plots (df, x_axis):
+    df = df.groupby(['species', 'year'])['year'].agg(['count']).reset_index()
+    df = df[df["species"]== f"{x_axis}"]
+    return px.line(df, x='year', y = "count")
+    

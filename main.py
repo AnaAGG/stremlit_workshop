@@ -1,7 +1,8 @@
 import streamlit as st
 from PIL import Image
 
-from src.support import species_list, load_data, load_info, maps
+
+from src.support import species_list, load_data, load_info, maps, plots
 
 # to write a title in our streamlit page we can use the magic command `write`
 st.write ("""
@@ -64,3 +65,4 @@ else:
     # create a map with the species presences
     maps(data2)
 
+    st.plotly_chart(plots(data, x_axis))
