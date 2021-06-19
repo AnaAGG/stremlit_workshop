@@ -1,5 +1,5 @@
 # stremlit_workshop
-[portada](https://github.com/AnaAGG/stremlit_workshop/blob/main/Images/streamlit.jpg)
+![portada](https://github.com/AnaAGG/stremlit_workshop/blob/main/Images/streamlit.jpg)
 
 In this repo we are going to learn how to create a web application using [streamlit](https://streamlit.io/). 
 
