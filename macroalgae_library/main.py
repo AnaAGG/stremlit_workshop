@@ -1,16 +1,15 @@
 import streamlit as st
 from PIL import Image
-
-
-from src.support import species_list, load_data, load_info, maps, plots
+from src.support import species_list, load_data, load_info, maps, plots_year, plots_month
 
 # to write a title in our streamlit page we can use the magic command `write`
 st.write ("""
-# Learning streamlit
+# Biodiversity Heritage Library
 
-## in this workshop we will learn how to create a streamlit page
+### In this app you will find the basic information and distribution of most important seaweed species
 """)
-st.text('This is some text.')
+
+st.text('Species, distribution and characteristics')
 
 
 # Insert images in streamlit, using two columns
@@ -40,8 +39,6 @@ with col5:
 with col6:
     st.table(x_options[15:20])
 
-
-
 #Now we have report the basic information for a given species
 
 st.header("Which species would you like to see?")
@@ -65,4 +62,9 @@ else:
     # create a map with the species presences
     maps(data2)
 
-    st.plotly_chart(plots(data, x_axis))
+    st.text("Number of species per year")
+    st.plotly_chart(plots_year(data, x_axis))
+
+
+    st.text("Number of species per month")
+    st.plotly_chart(plots_month(data, x_axis))

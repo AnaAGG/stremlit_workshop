@@ -132,3 +132,4 @@ dmypy.json
 Notebooks/.ipynb_checkpoints
 .vscode
 .DS_Store
+macroalgae_library/selenium/
