@@ -4,10 +4,18 @@ from streamlit_folium import folium_static
 from folium import Choropleth, Circle, Marker, Icon, Map
 import plotly.express as px
 
-# Function to load the macroalgae data
+
 def load_data():
+    """
+    Function to load the macroalgae data
+    Args: 
+        non receive parameters
+    Returns:
+        The dataset with the species coordinates cleaned
+    """
     df = pd.read_csv("data/macroalgae_final.csv", index_col=0)
     df = df.drop(["kingdom", "class", "family", "genus",  "new"], axis = 1)
+    df.dropna(inplace= True)
     return df.drop_duplicates(["lon", "lat"])
 
 # Function to load the macroalgae info
@@ -22,8 +30,6 @@ def species_list():
 def maps(df):
     #showing the maps
     map_sby = folium.Map(tiles="OpenStreetMap", location=[40.4146, -3.7004], zoom_start=2)
-    #design for the app
-
 
     for i,row in df.iterrows():
                 
@@ -36,7 +42,6 @@ def maps(df):
         location_ = {"location" : [row["lat"],row["lon"]],
                      "tooltip" : row["locality"]}
                 
-       
 
         marker_2 = Marker(**location_, icon = icon).add_to(map_sby)
 

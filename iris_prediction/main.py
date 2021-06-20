@@ -10,7 +10,7 @@ st.write("""
 This app predicts the **Iris flower** type!
 """)
 
-imagen = Image.open("images/flor.jpg")
+imagen = Image.open("images/flor.png")
 st.image(imagen, use_column_width=True)
 
 

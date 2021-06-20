@@ -24,3 +24,7 @@ All the information contained in this application has been downloaded using diff
 ## 2. Iris species predictive model
 
 This example shows interactive and data-driven web apps to predict what iris species we have. The Iris dataset was used in Fisher’s classic 1936 paper, it includes three iris species with 50 samples each as well as some properties about each flower. In this repo, I will use the sklearn and streamlit libraries from Python to predict the species class of various Iris flowers and create a friendly app to predict the species of a given new species. 
+
+
+
+Streamlit also allows to introduce POWERBI reports, [here](https://analyticsindiamag.com/embedding-powerbi-dashboard-in-a-streamlit-web-app-deploying-on-heroku/) some documentation to do it!

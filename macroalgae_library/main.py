@@ -14,7 +14,6 @@ important seaweed species. Species, distribution and characteristics''')
 # Insert images in streamlit, using two columns
 col1, col2 = st.beta_columns(2)
 with col1:
-
     imagen = Image.open("Images/portada1.jpg")
     st.image(imagen, use_column_width=True)
 with col2:
@@ -28,15 +27,14 @@ st.write("""
 
 x_options = species_list()
 
-col3, col4, col5, col6 = st.beta_columns(4)
+col3, col4, col5 = st.beta_columns(3)
 with col3:
     st.table(x_options[:5])
 with col4:
     st.table(x_options[5:10])
 with col5:
     st.table(x_options[10:15])
-with col6:
-    st.table(x_options[15:20])
+
 
 #Now we have report the basic information for a given species
 
