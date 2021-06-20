@@ -14,6 +14,7 @@ To do this example I used a worldwide seaweed information with the objetive to c
 In this repo you can see two examples of streamlit app: 
 
 1. The macroalgae library -> in this folder we find the basic concepts to get started with streamlit
+   
 2. Iris species predictive model -> an example of how to create and load a machine learning model in streamlit. 
 
 ## 1. Macroalgae library
@@ -21,7 +22,8 @@ In this repo you can see two examples of streamlit app:
 This example shows interactive and data-driven web apps to visualize macroalgael distribution patterns and characteristics. 
 
 All the information contained in this application has been downloaded using different data sources through different python tools:
-   - Species presences -> API GBIF
+   - Species presences -> [API GBIF](https://www.gbif.org/es/developer/summary)
+  
    - Species characteristics -> obtained from the [Marlin website](https://www.marlin.ac.uk/species/detail/1487) using Selenium 
 
 
@@ -29,6 +31,9 @@ All the information contained in this application has been downloaded using diff
 
 This example shows interactive and data-driven web apps to predict what iris species we have. The Iris dataset was used in Fisher’s classic 1936 paper, it includes three iris species with 50 samples each as well as some properties about each flower. In this repo, I will use the sklearn and streamlit libraries from Python to predict the species class of various Iris flowers and create a friendly app to predict the species of a given new species. 
 
+
+
+ ⚠️ **NOTE** ⚠️ Streamlit can give some issues with python 3.9. Ideally, use versions < 3.9.
 
 
 Streamlit also allows to introduce POWERBI reports, [here](https://analyticsindiamag.com/embedding-powerbi-dashboard-in-a-streamlit-web-app-deploying-on-heroku/) some documentation to do it!
