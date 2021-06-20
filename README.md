@@ -16,6 +16,18 @@ In this repo you can see two examples of streamlit app:
 1. The macroalgae library -> in this folder we find the basic concepts to get started with streamlit
    
 2. Iris species predictive model -> an example of how to create and load a machine learning model in streamlit. 
+   
+   
+> Both folders follow the same structure. In each of them you will find:
+   > - **src folder** --> where you find different .py files with all the function used in the project
+   >
+   > - **data folder** --> all the data needed to perform the project
+   >
+   > - **images folder** --> used images in the streamlit app
+   >
+   > - **Noteboooks folder** --> where I execute the main code to get the data
+   >
+   > - **main.py file** --> the stremlit app
 
 ## 1. Macroalgae library
 
