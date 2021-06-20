@@ -1,8 +1,7 @@
 import streamlit as st
 from PIL import Image
-from src.support import species_list, load_data, load_info, maps, plots_year, plots_month
+from src.support import species_list, load_data, load_info, maps, plots_year, plots_month, pie_chart_family
 
-st.set_page_config(layout="wide")
 
 # to write a title in our streamlit page we can use the magic command `write`
 st.write ("""
@@ -38,6 +37,9 @@ with col5:
     st.table(x_options[10:15])
 
 
+st.plotly_chart(pie_chart_family())
+
+
 #Now we have report the basic information for a given species
 
 st.write("### Which species would you like to see?")
@@ -63,9 +65,15 @@ else:
     st.text("Map of the global distribution")
     maps(data2)
 
-    st.text("Number of species per year")
+    #get some conclusions of the data
     st.plotly_chart(plots_year(data, x_axis))
-
-
-    st.text("Number of species per month")
     st.plotly_chart(plots_month(data, x_axis))
+
+
+
+    """
+    #para ponerlo al ancho de la pagina
+    st.set_page_config(layout="wide")
+    #para hacer el drag and drop
+    uploaded_file = st.file_uploader("Introduce una foto", type = ['jpeg', 'jpg', 'png'])
+    """

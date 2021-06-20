@@ -5,6 +5,8 @@ from folium import Choropleth, Circle, Marker, Icon, Map
 import plotly.express as px
 
 
+
+
 def load_data():
     """
     Function to load the macroalgae data
@@ -14,7 +16,7 @@ def load_data():
         The dataset with the species coordinates cleaned
     """
     df = pd.read_csv("data/macroalgae_final.csv", index_col=0)
-    df = df.drop(["kingdom", "class", "family", "genus",  "new"], axis = 1)
+    df = df.drop(["kingdom", "class", "genus",  "new"], axis = 1)
     df.dropna(inplace= True)
     return df.drop_duplicates(["lon", "lat"])
 
@@ -40,6 +42,19 @@ def species_list():
     """
     data = load_data()
     return list(data["species"].unique())
+
+def pie_chart_family():
+    """
+    Function to create a plot to represent the % of each family
+    Args: 
+        non receive parameters
+    Returns:
+        A plotly pie plot
+    """
+    df = load_data()
+    df2 = df.groupby('family')['family'].agg(['count']).reset_index()
+    return px.pie(df2, values='count', names='family', title='Number of families in the dataframe')
+
 
 def maps(df):
     """
@@ -79,7 +94,7 @@ def plots_year (df, x_axis):
     """
     df = df.groupby(['species', 'year'])['year'].agg(['count']).reset_index()
     df = df[df["species"]== f"{x_axis}"]
-    return px.line(df, x='year', y = "count")
+    return px.line(df, x='year', y = "count", title = "Number of species per year")
 
 def plots_month(df, x_axis):
     """
@@ -92,5 +107,5 @@ def plots_month(df, x_axis):
     """
     df = df.groupby(['species', 'month'])['month'].agg(['count']).reset_index()
     df = df[df["species"]== f"{x_axis}"]
-    return px.bar(df, x='month', y = "count")
+    return px.bar(df, x='month', y = "count", title='Number of presences epr month')
     
