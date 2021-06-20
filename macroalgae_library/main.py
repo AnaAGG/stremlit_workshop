@@ -2,6 +2,8 @@ import streamlit as st
 from PIL import Image
 from src.support import species_list, load_data, load_info, maps, plots_year, plots_month
 
+st.set_page_config(layout="wide")
+
 # to write a title in our streamlit page we can use the magic command `write`
 st.write ("""
 # Biodiversity Heritage Library
@@ -21,7 +23,7 @@ with col2:
     st.image(imagen, use_column_width=True)
 
 
-#now 
+#now, ask to the user what you want to see in our application
 st.write(""" 
 ### List of species that you could find in this page""")
 
@@ -45,7 +47,7 @@ x_axis = st.selectbox("Select species", ["Choose and option"] + list_species )
 if len(x_axis) == 0 or x_axis == "Choose and option":    
         st.write("We need that you pass a species")
 else:
-    #load coordinates information
+    #load coordinates info
     data = load_data()
     data2 = data[data["species"] == f'{x_axis}']
     st.dataframe(data2)

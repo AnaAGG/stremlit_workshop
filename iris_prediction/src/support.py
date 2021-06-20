@@ -55,6 +55,7 @@ def model(df,x,y):
     
     prediction = int(clf.predict(df))
     prediction_proba = clf.predict_proba(df)
+    type(prediction_proba)
 
     dict_pred = {0 : "Iris setosa", 
                 1 : "Iris versicolor", 
@@ -64,4 +65,5 @@ def model(df,x,y):
 
     pred_proba = prediction_proba
 
+    st.write(type(clf.predict_proba(df)))
     return pred, pred_proba
