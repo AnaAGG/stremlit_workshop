@@ -64,6 +64,4 @@ def model(df,x,y):
     pred = dict_pred[prediction]
 
     pred_proba = prediction_proba
-
-    st.write(type(clf.predict_proba(df)))
     return pred, pred_proba
