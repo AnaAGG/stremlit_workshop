@@ -18,16 +18,37 @@ def load_data():
     df.dropna(inplace= True)
     return df.drop_duplicates(["lon", "lat"])
 
-# Function to load the macroalgae info
+
 def load_info():
+    """
+    Function to load the macroalgae info
+    Args: 
+        non receive parameters
+    Returns:
+        The dataset with the species info 
+    """
     return pd.read_csv("data/species_info.csv", index_col=0)
 
-# Function to load create a list with all the species that we have in the dataset
+
 def species_list():
+    """
+    Function to load create a list with all the species that we have in the dataset
+    Args: 
+        non receive parameters
+    Returns:
+        A list with the unique species finded in the dataset 
+    """
     data = load_data()
     return list(data["species"].unique())
 
 def maps(df):
+    """
+    Function to create a folium map with the species presences
+    Args: 
+        df: dataframe
+    Returns:
+        A folium map
+    """
     #showing the maps
     map_sby = folium.Map(tiles="OpenStreetMap", location=[40.4146, -3.7004], zoom_start=2)
 
@@ -48,11 +69,27 @@ def maps(df):
     return folium_static(map_sby)
 
 def plots_year (df, x_axis):
+    """
+    Function to create a plot to represent the evolution of data through the years
+    Args: 
+        df: dataframe
+        x_axis: target species that you are interested in 
+    Returns:
+        A plotly line plot
+    """
     df = df.groupby(['species', 'year'])['year'].agg(['count']).reset_index()
     df = df[df["species"]== f"{x_axis}"]
     return px.line(df, x='year', y = "count")
 
 def plots_month(df, x_axis):
+    """
+    Function to create a plot to represent the evolution of data through the months
+    Args: 
+        df: dataframe
+        x_axis: target species that you are interested in 
+    Returns:
+        A plotly bar plot
+    """
     df = df.groupby(['species', 'month'])['month'].agg(['count']).reset_index()
     df = df[df["species"]== f"{x_axis}"]
     return px.bar(df, x='month', y = "count")
