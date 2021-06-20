@@ -4,6 +4,7 @@ from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
 def load_data():
+    
      data =  datasets.load_iris()
      df = pd.DataFrame(data.data, columns = data.feature_names)
 
@@ -23,24 +24,21 @@ def user_input_features():
 
     return pd.DataFrame(data, index=[0])
 
-def model():
-    iris = datasets.load_iris()
-    X = iris.data
-    Y = iris.target
 
-clf = RandomForestClassifier()
-clf.fit(X, Y)
 
-prediction = clf.predict(df)
-prediction_proba = clf.predict_proba(df)
+def model(df,x,y):
+    clf = RandomForestClassifier()
+    clf.fit(x, y)
+    
+    prediction = int(clf.predict(df))
+    prediction_proba = clf.predict_proba(df)
 
-st.subheader('Class labels and their corresponding index number')
-st.write(iris.target_names)
+    dict_pred = {0 : "Iris setosa", 
+                1 : "Iris versicolor", 
+                2 : "Iris virginica"}
 
-st.subheader('Prediction')
-st.write(iris.target_names[prediction])
-#st.write(prediction)
+    pred = dict_pred[prediction]
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+    pred_proba = prediction_proba
 
+    return pred, pred_proba
