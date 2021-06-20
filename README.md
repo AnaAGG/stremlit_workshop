@@ -1,5 +1,4 @@
-# stremlit_workshop
-![portada](https://github.com/AnaAGG/stremlit_workshop/blob/main/Images/streamlit.png)
+# Learning streamlit
 
 <p align="center">
   <img src="https://github.com/AnaAGG/stremlit_workshop/blob/main/Images/streamlit.png" />
