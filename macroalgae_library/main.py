@@ -5,11 +5,10 @@ from src.support import species_list, load_data, load_info, maps, plots_year, pl
 # to write a title in our streamlit page we can use the magic command `write`
 st.write ("""
 # Biodiversity Heritage Library
-
-### In this app you will find the basic information and distribution of most important seaweed species
 """)
 
-st.text('Species, distribution and characteristics')
+st.text('''In this app you will find the basic information and distribution of most 
+important seaweed species. Species, distribution and characteristics''')
 
 
 # Insert images in streamlit, using two columns
@@ -25,7 +24,7 @@ with col2:
 
 #now 
 st.write(""" 
-## List of species that you could find in this page""")
+### List of species that you could find in this page""")
 
 x_options = species_list()
 
@@ -41,10 +40,11 @@ with col6:
 
 #Now we have report the basic information for a given species
 
-st.header("Which species would you like to see?")
-x_axis = st.text_input("Buscador:")
+st.write("### Which species would you like to see?")
+list_species = species_list()
+x_axis = st.selectbox("Select species", ["Choose and option"] + list_species )
 
-if len(x_axis) == 0:    
+if len(x_axis) == 0 or x_axis == "Choose and option":    
         st.write("We need that you pass a species")
 else:
     #load coordinates information
@@ -60,6 +60,7 @@ else:
     st.table(t)
 
     # create a map with the species presences
+    st.text("Map of the global distribution")
     maps(data2)
 
     st.text("Number of species per year")

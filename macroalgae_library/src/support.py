@@ -24,16 +24,6 @@ def maps(df):
     map_sby = folium.Map(tiles="OpenStreetMap", location=[40.4146, -3.7004], zoom_start=2)
     #design for the app
 
-    icono = Icon(color = "blue",
-                    prefix = "fa",
-                    icon = "home",
-                    icon_color = "black"
-        )
-
-    loc = {"location":[40.4146, -3.7004],
-                "tooltip": "Mi ubicación"}
-        
-    marker_ = Marker(**loc, icon = icono).add_to(map_sby)
 
     for i,row in df.iterrows():
                 
@@ -60,5 +50,5 @@ def plots_year (df, x_axis):
 def plots_month(df, x_axis):
     df = df.groupby(['species', 'month'])['month'].agg(['count']).reset_index()
     df = df[df["species"]== f"{x_axis}"]
-    return px.line(df, x='month', y = "count")
+    return px.bar(df, x='month', y = "count")
     
