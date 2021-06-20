@@ -1,5 +1,5 @@
 # stremlit_workshop
-![portada](https://github.com/AnaAGG/stremlit_workshop/blob/main/Images/streamlit.jpg)
+![portada](https://github.com/AnaAGG/stremlit_workshop/blob/main/Images/streamlit.png)
 
 In this repo we are going to learn how to create a web application using [streamlit](https://streamlit.io/). 
 
@@ -16,7 +16,7 @@ In this repo you can see two examples of streamlit app:
 
 This example shows interactive and data-driven web apps to visualize macroalgael distribution patterns and characteristics. 
 
-All the information contained in this application has been downloaded using different data sources data sources through different python tools:
+All the information contained in this application has been downloaded using different data sources through different python tools:
    - Species presences -> API GBIF
    - Species characteristics -> obtained from the [Marlin website](https://www.marlin.ac.uk/species/detail/1487) using Selenium 
 
