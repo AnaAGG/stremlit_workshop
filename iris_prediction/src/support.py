@@ -43,7 +43,7 @@ def model(df,x,y):
     """
     Function fit a Random Forest Model
     Args: 
-        df: complete dataframe with all the data
+        df: dataframe with the users parameters
         x: the predictors
         y: the response variable (kind of species)
     Returns:
@@ -54,8 +54,10 @@ def model(df,x,y):
     clf.fit(x, y)
     
     prediction = int(clf.predict(df))
-    prediction_proba = clf.predict_proba(df)
-    type(prediction_proba)
+    #prediction_proba = clf.predict_proba(df)
+    columns = ["Iris setosa", "Iris versicolor", "Iris virginica"]
+    prediction_proba = pd.DataFrame(clf.predict_proba(df), columns=columns)
+    
 
     dict_pred = {0 : "Iris setosa", 
                 1 : "Iris versicolor", 
