@@ -13,7 +13,7 @@ important seaweed species. Species, distribution and characteristics''')
 
 
 # Insert images in streamlit, using two columns
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 with col1:
     imagen = Image.open("Images/portada1.jpg")
     st.image(imagen, use_column_width=True)
@@ -28,7 +28,7 @@ st.write("""
 
 x_options = species_list()
 
-col3, col4, col5 = st.beta_columns(3)
+col3, col4, col5 = st.columns(3)
 with col3:
     st.table(x_options[:5])
 with col4:
@@ -68,12 +68,3 @@ else:
     #get some conclusions of the data
     st.plotly_chart(plots_year(data, x_axis))
     st.plotly_chart(plots_month(data, x_axis))
-
-
-
-    """
-    #para ponerlo al ancho de la pagina
-    st.set_page_config(layout="wide")
-    #para hacer el drag and drop
-    uploaded_file = st.file_uploader("Introduce una foto", type = ['jpeg', 'jpg', 'png'])
-    """
